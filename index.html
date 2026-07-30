@@ -19,7 +19,64 @@ body:after{content:"";position:fixed;inset:0;z-index:-2;opacity:.16;pointer-even
 .real-pass{position:relative;height:100%;min-height:345px;padding:25px;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(circle at 50% 15%,rgba(240,50,63,.18),transparent 35%),linear-gradient(150deg,#171820,#08090d 72%)}.lanyard-slot{width:70px;height:15px;border-radius:999px;margin:0 auto 14px;border:1px solid rgba(255,255,255,.26);background:#030305;box-shadow:inset 0 2px 7px rgba(0,0,0,.9)}.pass-logo{text-align:center;font-family:Georgia,serif;font-size:clamp(2rem,7vw,3.2rem);line-height:.9;color:#fff}.pass-logo em{display:block;color:var(--red);font-style:italic;font-size:.8em}.vip-label{text-align:center;margin-top:14px;color:var(--gold2);letter-spacing:.22em;font-size:.76rem}.pass-event{text-align:center;padding:18px 12px;border-top:1px solid rgba(240,50,63,.35);border-bottom:1px solid rgba(240,50,63,.35)}.pass-event b{display:block;font-size:1.1rem}.pass-event span{display:block;margin-top:5px;color:var(--muted);font-size:.8rem}.barcode{height:52px;margin:18px auto 7px;width:min(82%,430px);background:repeating-linear-gradient(90deg,#eee 0 2px,transparent 2px 5px,#eee 5px 6px,transparent 6px 10px,#eee 10px 14px,transparent 14px 17px);opacity:.85}.barcode-code{text-align:center;color:var(--muted);font-size:.68rem;letter-spacing:.22em}.tap{text-align:center;color:var(--muted);font-size:.73rem;margin-top:9px}
 .card{margin-top:20px;padding:22px;border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);background:linear-gradient(145deg,rgba(18,18,24,.97),rgba(9,9,13,.98));box-shadow:0 18px 55px rgba(0,0,0,.24);opacity:0;transform:translateY(22px);transition:.75s ease}.card.show{opacity:1;transform:none}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:17px}.section-head h2{margin:0;color:var(--cream);font-size:1rem;letter-spacing:.16em;text-transform:uppercase}.num{font-family:Georgia,serif;color:var(--gold);font-size:1.2rem}.visual{overflow:hidden;border-radius:19px;border:1px solid rgba(255,255,255,.09);background:#050506}.visual img{width:100%;height:auto;display:block;transition:transform 1.6s ease}.card.show .visual img{transform:scale(1.018)}.caption{padding:15px 16px;background:rgba(5,5,8,.96);border-top:1px solid rgba(215,179,106,.2);line-height:1.55}.caption strong{color:var(--pink)}
 .schedule{display:grid}.slot{display:grid;grid-template-columns:minmax(112px,130px) 1fr;gap:16px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.065);align-items:start}.slot:last-child{border:0}.hour{font-weight:800;color:var(--pink);white-space:nowrap}.what{color:#ecebf0;min-width:0}.gift-card{text-align:center;padding:36px 22px;background:radial-gradient(circle at 50% 0%,rgba(240,50,63,.15),transparent 48%),linear-gradient(145deg,rgba(23,15,20,.98),rgba(8,8,12,.99))}.gift-icon{width:70px;height:70px;margin:0 auto 14px;border-radius:20px;display:grid;place-items:center;font-size:2.2rem;background:rgba(215,179,106,.09);border:1px solid rgba(215,179,106,.25)}.gift-card h2{margin:0 0 9px;color:var(--gold2);font-family:Georgia,serif;font-size:1.6rem;font-weight:500}.gift-card p{margin:0;color:#dedbe1;font-size:1rem;line-height:1.65}
-.phone-card{text-align:center}.phone{width:min(100%,430px);margin:auto;padding:16px;border-radius:34px;background:linear-gradient(145deg,#1a1b22,#07080c);border:1px solid rgba(255,255,255,.18);box-shadow:0 25px 70px rgba(0,0,0,.45)}.phone-top{width:34%;height:18px;margin:0 auto 16px;border-radius:999px;background:#020203}.notification{display:grid;grid-template-columns:46px 1fr;gap:12px;text-align:left;padding:15px;border-radius:19px;background:rgba(236,236,240,.94);color:#121216;box-shadow:0 12px 28px rgba(0,0,0,.28);transform:translateY(16px);opacity:0;transition:.65s ease}.phone-card.show .notification{transform:none;opacity:1}.notification-icon{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:#08090d;color:#fff;font-size:1.35rem}.notification small{display:block;color:#5d5d63;font-size:.72rem;margin-bottom:4px}.notification strong{display:block;font-size:.95rem;line-height:1.35}.notification p{margin:5px 0 0;font-size:.9rem;line-height:1.45}.footer{text-align:center;color:#74757d;font-size:.73rem;margin-top:24px}
+.phone-card{text-align:center}
+.phone{
+  position:relative;width:min(100%,430px);min-height:560px;margin:auto;padding:15px;
+  overflow:hidden;border-radius:42px;
+  background:
+    radial-gradient(circle at 50% 82%,rgba(240,50,63,.32),transparent 35%),
+    radial-gradient(circle at 24% 18%,rgba(125,77,255,.30),transparent 30%),
+    linear-gradient(160deg,#141522,#06070c 68%);
+  border:1px solid rgba(255,255,255,.23);
+  box-shadow:0 28px 80px rgba(0,0,0,.52),inset 0 0 0 5px #050506;
+}
+.phone:before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(125deg,rgba(255,255,255,.08),transparent 25%,transparent 70%,rgba(255,255,255,.025));
+}
+.phone-status{
+  position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;
+  padding:5px 9px 0;font-size:.68rem;font-weight:700;
+}
+.phone-island{
+  position:absolute;z-index:3;top:13px;left:50%;transform:translateX(-50%);
+  width:112px;height:31px;border-radius:999px;background:#000;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.035);
+}
+.phone-clock{position:relative;z-index:2;margin-top:57px}
+.phone-clock b{display:block;font-size:4.5rem;line-height:.95;font-weight:300;letter-spacing:-.05em}
+.phone-clock span{display:block;margin-top:8px;font-size:.93rem;color:rgba(255,255,255,.9)}
+.notification{
+  position:relative;z-index:4;display:grid;grid-template-columns:48px minmax(0,1fr);gap:12px;
+  margin-top:58px;padding:13px 14px;text-align:left;border-radius:20px;
+  background:rgba(238,238,243,.91);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  color:#111116;box-shadow:0 16px 38px rgba(0,0,0,.34);
+  transform:translateY(-28px) scale(.96);opacity:0;
+  transition:opacity .65s ease,transform .78s cubic-bezier(.2,.8,.2,1),max-height .45s ease;
+  cursor:pointer;max-height:106px;overflow:hidden;
+}
+.phone-card.show .notification{transform:none;opacity:1}
+.notification.expanded{max-height:220px}
+.notification-icon{
+  width:48px;height:48px;border-radius:13px;display:grid;place-items:center;
+  background:linear-gradient(145deg,#191a20,#050506);color:#fff;font-size:1.38rem;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+}
+.notification-meta{display:flex;justify-content:space-between;gap:8px;color:#5d5d63;font-size:.69rem;margin-bottom:4px}
+.notification strong{display:block;font-size:.96rem;line-height:1.3;padding-right:4px}
+.notification p{margin:4px 0 0;font-size:.88rem;line-height:1.38}
+.notification-detail{
+  max-height:0;opacity:0;overflow:hidden;margin-top:0;padding-top:0;
+  border-top:1px solid rgba(0,0,0,.09);font-size:.83rem;line-height:1.45;color:#3e3e45;
+  transition:.4s ease;
+}
+.notification.expanded .notification-detail{max-height:90px;opacity:1;margin-top:10px;padding-top:9px}
+.notification-hint{position:relative;z-index:2;margin-top:17px;color:rgba(255,255,255,.66);font-size:.72rem}
+.phone-bottom{
+  position:absolute;left:50%;bottom:10px;transform:translateX(-50%);
+  width:126px;height:5px;border-radius:999px;background:rgba(255,255,255,.82)
+}
+.footer{text-align:center;color:#74757d;font-size:.73rem;margin-top:24px}
 @media(max-width:650px){.shell{width:min(100% - 14px,1100px)}.hero-main{padding:39px 16px 25px}.meta{grid-template-columns:1fr}.meta div{border-right:0;border-bottom:1px solid rgba(255,255,255,.06);padding:13px}.meta div:last-child{border:0}.count-grid{grid-template-columns:repeat(4,1fr);gap:4px}.count-unit{padding:8px 2px}.pass{min-height:365px}.real-pass{min-height:365px;padding:20px 16px}.card{padding:15px}.slot{grid-template-columns:100px minmax(0,1fr);gap:10px}.hour{font-size:.88rem}.what{font-size:.93rem}}
 @media(max-width:380px){.slot{grid-template-columns:92px minmax(0,1fr)}.hour{font-size:.8rem}.what{font-size:.88rem}.count-unit span{font-size:.52rem}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.loader{display:none}.card{opacity:1;transform:none}.notification{opacity:1;transform:none}}
@@ -31,11 +88,31 @@ body:after{content:"";position:fixed;inset:0;z-index:-2;opacity:.16;pointer-even
 <nav class="nav"><div class="wordmark">Supercross Paris 2026</div><div class="confirmed"><i></i>Accès confirmé</div></nav>
 <section class="hero"><div class="hero-main"><div class="kicker">Expérience privée</div><h1>TON ACCÈS<br>SUPERCROSS</h1><p class="hello">Bienvenue <strong>Benjamin Ringue</strong></p><p class="intro">Une journée de course, de freestyle et d’adrénaline t’attend à Paris La Défense Arena.</p><div class="count-main" id="countMain">J-—</div><div class="count-grid"><div class="count-unit"><b id="days">—</b><span>Jours</span></div><div class="count-unit"><b id="hours">—</b><span>Heures</span></div><div class="count-unit"><b id="minutes">—</b><span>Minutes</span></div><div class="count-unit"><b id="seconds">—</b><span>Secondes</span></div></div><div class="date">21 novembre 2026 • 14 h 00<br>Paris La Défense Arena</div></div><div class="meta"><div><b>Date</b><span>Samedi 21 novembre 2026</span></div><div><b>Lieu</b><span>Paris La Défense Arena</span></div><div><b>Accès</b><span>Zone Moto Verte</span></div></div></section>
 <div class="pass-area"><div class="pass" id="pass" tabindex="0" role="button" aria-label="Retourner le pass"><section class="pass-face"><div class="pass-head"><div><div class="pass-title">EVENT PASS</div><div class="pass-code">SUPER-CROSS / PARIS / 2026</div></div><div class="pill">INVITÉ</div></div><div class="holder"><small>Titulaire</small><strong>BENJAMIN RINGUE</strong></div><div class="seats"><div><span>Porte</span><b>114</b></div><div><span>Rang</span><b>16</b></div><div><span>Place</span><b>7</b></div></div></section><section class="pass-face pass-back"><div class="real-pass"><div><div class="lanyard-slot"></div><div class="pass-logo">SUPERCROSS<em>Paris</em></div><div class="vip-label">EVENT PASS • INVITÉ</div></div><div class="pass-event"><b>PARIS LA DÉFENSE ARENA</b><span>Samedi 21 novembre 2026 • Accès Moto Verte</span></div><div><div class="barcode" aria-hidden="true"></div><div class="barcode-code">SXP26-BENJAMIN-114</div></div></div></section></div><div class="tap">Touchez le pass pour le retourner</div></div>
-<section class="card"><div class="section-head"><h2>Ton emplacement</h2><div class="num">01</div></div><div class="visual"><img src="emplacement-moto-verte.png" alt="Plan de la salle avec emplacement Moto Verte"><div class="caption"><strong>Nous serons ici :</strong> zone Moto Verte, Porte 114, Rang 16, Place 7.</div></div></section>
-<section class="card"><div class="section-head"><h2>La piste 2026</h2><div class="num">02</div></div><div class="visual"><img src="piste-2026.png" alt="Vue 3D de la piste du Supercross Paris 2026"></div></section>
-<section class="card"><div class="section-head"><h2>Programme de la journée</h2><div class="num">03</div></div><div class="schedule"><div class="slot"><div class="hour">14 h 00</div><div class="what">Ouverture de la salle</div></div><div class="slot"><div class="hour">14 h – 16 h</div><div class="what">Essais et qualifications</div></div><div class="slot"><div class="hour">16 h 00</div><div class="what">Séance de dédicaces pilotes</div></div><div class="slot"><div class="hour">17 h 15</div><div class="what">Visite de piste</div></div><div class="slot"><div class="hour">19 h 00</div><div class="what">Début du show</div></div><div class="slot"><div class="hour">Soirée</div><div class="what">FMX • SX1 • SX2 • Superpôles</div></div><div class="slot"><div class="hour">21 h 54</div><div class="what">Finale SX2</div></div><div class="slot"><div class="hour">22 h 11</div><div class="what">Grande Finale SX1</div></div></div></section>
-<section class="card gift-card"><div class="gift-icon">🎁</div><h2>Un petit plus sur place</h2><p>D’autres petites surprises t’attendent sur place.</p></section>
-<section class="card phone-card" id="phoneCard"><div class="section-head"><h2>Message pour Benjamin</h2><div class="num">04</div></div><div class="phone"><div class="phone-top"></div><div class="notification"><div class="notification-icon">🏁</div><div><small>SUPERCROSS PARIS • maintenant</small><strong>Joyeux anniversaire Benjamin !</strong><p>Prépare-toi à vivre une journée mémorable 🔥🏍️❤️</p></div></div></div></section>
+<section class="card"><div class="section-head"><h2>Ton emplacement</h2></div><div class="visual"><img src="emplacement-moto-verte.png" alt="Plan de la salle avec emplacement Moto Verte"><div class="caption"><strong>Nous serons ici :</strong> zone Moto Verte, Porte 114, Rang 16, Place 7.</div></div></section>
+<section class="card"><div class="section-head"><h2>La piste 2026</h2></div><div class="visual"><img src="piste-2026.png" alt="Vue 3D de la piste du Supercross Paris 2026"></div></section>
+<section class="card"><div class="section-head"><h2>Programme de la journée</h2></div><div class="schedule"><div class="slot"><div class="hour">14 h 00</div><div class="what">Ouverture de la salle</div></div><div class="slot"><div class="hour">14 h – 16 h</div><div class="what">Essais et qualifications</div></div><div class="slot"><div class="hour">16 h 00</div><div class="what">Séance de dédicaces pilotes</div></div><div class="slot"><div class="hour">17 h 15</div><div class="what">Visite de piste</div></div><div class="slot"><div class="hour">19 h 00</div><div class="what">Début du show</div></div><div class="slot"><div class="hour">Soirée</div><div class="what">FMX • SX1 • SX2 • Superpôles</div></div><div class="slot"><div class="hour">21 h 54</div><div class="what">Finale SX2</div></div><div class="slot"><div class="hour">22 h 11</div><div class="what">Grande Finale SX1</div></div></div></section>
+<section class="card gift-card"><div class="gift-icon">🎁</div><h2>Le petit plus</h2><p>D’autres petites surprises t’attendent sur place.</p></section>
+<section class="card phone-card" id="phoneCard">
+  <div class="section-head"><h2>Message pour Benjamin</h2></div>
+  <div class="phone" aria-label="Aperçu d’une notification sur téléphone">
+    <div class="phone-island" aria-hidden="true"></div>
+    <div class="phone-status"><span id="phoneStatusTime">10:45</span><span>●●●  Wi‑Fi  ▰</span></div>
+    <div class="phone-clock"><b id="phoneClock">10:45</b><span>Samedi 21 novembre</span></div>
+    <div class="notification" id="birthdayNotification" role="button" tabindex="0" aria-expanded="false">
+      <div class="notification-icon">🏁</div>
+      <div>
+        <div class="notification-meta"><span>SUPERCROSS PARIS</span><span>maintenant</span></div>
+        <strong>Joyeux anniversaire Benjamin ! 🔥🏍️❤️</strong>
+        <p>L’aventure commence le 21 novembre…</p>
+        <div class="notification-detail">
+          Prépare-toi à vivre une journée mémorable. On se retrouve à Paris La Défense Arena le 21 novembre 2026.
+        </div>
+      </div>
+    </div>
+    <div class="notification-hint">Touchez la notification pour l’ouvrir</div>
+    <div class="phone-bottom" aria-hidden="true"></div>
+  </div>
+</section>
 <div class="footer">Page personnalisée — Supercross Paris 2026</div>
 </main>
 <script>
@@ -45,6 +122,27 @@ function updateCountdown(){const diff=target-Date.now();if(diff<=0){main.textCon
 updateCountdown();setInterval(updateCountdown,1000);
 const pass=document.getElementById('pass');const flip=()=>pass.classList.toggle('flipped');pass.addEventListener('click',flip);pass.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();flip()}});
 let vibrated=false;const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');if(e.target.id==='phoneCard'&&!vibrated){vibrated=true;if(navigator.vibrate)navigator.vibrate([120,70,120])}}}),{threshold:.2});document.querySelectorAll('.card').forEach(c=>io.observe(c));
+
+const phoneClock=document.getElementById('phoneClock');
+const phoneStatusTime=document.getElementById('phoneStatusTime');
+function updatePhoneTime(){
+  const now=new Date();
+  const value=now.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+  phoneClock.textContent=value;
+  phoneStatusTime.textContent=value;
+}
+updatePhoneTime();setInterval(updatePhoneTime,30000);
+
+const birthdayNotification=document.getElementById('birthdayNotification');
+function toggleNotification(){
+  const expanded=birthdayNotification.classList.toggle('expanded');
+  birthdayNotification.setAttribute('aria-expanded',String(expanded));
+  if(navigator.vibrate)navigator.vibrate(45);
+}
+birthdayNotification.addEventListener('click',toggleNotification);
+birthdayNotification.addEventListener('keydown',e=>{
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleNotification();}
+});
 </script>
 </body>
 </html>
