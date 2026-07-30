@@ -147,29 +147,7 @@
     .goodies p{max-width:600px;margin:auto;color:#e8e1eb;line-height:1.65}
     .soft-note{margin-top:14px;color:var(--gold2);font-style:italic}
 
-    .finale{text-align:center;padding:40px 22px}
-    .finale-line{opacity:0;transform:translateY(10px);transition:.8s ease;margin:12px 0}
-    .finale.visible .finale-line{opacity:1;transform:none}
-    .finale.visible .finale-line:nth-child(2){transition-delay:.35s}
-    .finale.visible .finale-line:nth-child(3){transition-delay:.7s}
-    .heart{font-size:2rem;color:var(--pink)}
-    .signature{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--gold2);font-size:1.35rem}
 
-    .notif{
-      margin-top:18px;padding:15px 17px;border-radius:18px;border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.055);display:flex;align-items:center;gap:12px;cursor:pointer;
-      box-shadow:0 12px 30px rgba(0,0,0,.22)
-    }
-    .notif-icon{font-size:1.4rem}
-    .notif b{display:block}
-    .notif span{display:block;color:var(--muted);font-size:.82rem;margin-top:3px}
-    .toast{
-      position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);
-      width:min(92vw,420px);padding:16px 18px;border-radius:16px;
-      background:#11131d;border:1px solid var(--line);box-shadow:var(--shadow);
-      opacity:0;pointer-events:none;transition:.35s ease;z-index:70
-    }
-    .toast.show{opacity:1;transform:translate(-50%,0)}
     footer{text-align:center;color:#777783;font-size:.77rem;margin-top:22px}
 
     @media(max-width:620px){
@@ -258,8 +236,8 @@
             <strong>PARIS LA DÉFENSE ARENA</strong>
           </div>
           <div class="pass-name" style="border-bottom:0">
-            <small>Message</small>
-            <strong style="font-size:1.06rem;line-height:1.45">Prépare-toi : cette fois, ce ne sera pas des moteurs électriques.</strong>
+            <small>Informations</small>
+            <strong style="font-size:1.06rem;line-height:1.45">Porte 114 • Rang 16 • Place 7<br>Paris La Défense Arena</strong>
           </div>
         </section>
       </div>
@@ -277,7 +255,7 @@
     <section class="section">
       <h2>La piste 2026</h2>
       <div class="map">
-        <img src="plan-piste-2026.png" alt="Plan de la piste du Supercross Paris 2026" />
+        <img src="piste-2026.png" alt="Plan de la piste du Supercross Paris 2026" />
       </div>
     </section>
 
@@ -298,32 +276,13 @@
     <section class="section goodies">
       <div class="gift">🎁</div>
       <h2>Quelques bonus sur place</h2>
-      <p>Ton billet Moto Verte prévoit aussi quelques goodies à récupérer le jour de l’événement.</p>
-      <div class="soft-note">Une petite attention en plus, sans tout dévoiler.</div>
+      <p>D’autres petites surprises t’attendent sur place.</p>
     </section>
 
-    <section class="section finale">
-      <div class="finale-line">Certaines journées restent gravées.</div>
-      <div class="finale-line">J’espère que celle-ci en fera partie.</div>
-      <div class="finale-line heart">♥</div>
-      <div class="finale-line signature">Joyeux anniversaire mon petit chat.</div>
-
-      <div class="notif" id="notif">
-        <div class="notif-icon">🔓</div>
-        <div>
-          <b>Dernier message</b>
-          <span>Toucher pour l’ouvrir</span>
-        </div>
-      </div>
-    </section>
 
     <footer>Page souvenir personnalisée — Supercross Paris 2026</footer>
   </main>
 
-  <div class="toast" id="toast">
-    <b>Profite de chaque instant.</b><br>
-    <span style="color:var(--muted)">Le meilleur reste encore à venir…</span>
-  </div>
 
   <script>
     const target = new Date("2026-11-21T14:00:00+01:00").getTime();
@@ -345,13 +304,6 @@
     },{threshold:.12});
     document.querySelectorAll(".section").forEach(el=>observer.observe(el));
 
-    const notif = document.getElementById("notif");
-    const toast = document.getElementById("toast");
-    notif.addEventListener("click",()=>{
-      if(navigator.vibrate) navigator.vibrate([120,60,120]);
-      toast.classList.add("show");
-      setTimeout(()=>toast.classList.remove("show"),4200);
-    });
   </script>
 </body>
 </html>
