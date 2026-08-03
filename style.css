@@ -32,7 +32,7 @@ button{font:inherit}
 .loading-bg,.hero-bg,.iphone-wallpaper{
   position:absolute;inset:0;background-size:cover;background-position:center;
 }
-.loading-bg{background-image:url("assets/hero-mobile.jpg")}
+.loading-bg{background-image:url("hero-mobile.jpg")}
 .loading-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.26),rgba(0,0,0,.88) 70%,#000)}
 .loading-content{
   position:relative;z-index:2;
@@ -82,7 +82,7 @@ main{padding-bottom:calc(90px + env(safe-area-inset-bottom))}
   overflow:hidden;
   display:flex;align-items:end;
 }
-.hero-bg{background-image:url("assets/hero-mobile.jpg");transform:scale(1.04)}
+.hero-bg{background-image:url("hero-mobile.jpg");transform:scale(1.04)}
 .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.54) 42%,#050505 92%)}
 .hero-content{position:relative;z-index:2;width:100%;padding:30px 14px 24px;text-align:center}
 .eyebrow{
@@ -149,7 +149,7 @@ main{padding-bottom:calc(90px + env(safe-area-inset-bottom))}
   box-shadow:0 24px 56px rgba(0,0,0,.38)
 }
 .pass-back{transform:rotateY(180deg)}
-.pass-image{position:absolute;inset:0;background-image:url("assets/pass-background.jpg");background-size:cover;background-position:center}
+.pass-image{position:absolute;inset:0;background-image:url("pass-background.jpg");background-size:cover;background-position:center}
 .pass-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.10),rgba(0,0,0,.58) 42%,rgba(0,0,0,.96))}
 .pass-overlay.dark{background:linear-gradient(180deg,rgba(0,0,0,.34),rgba(0,0,0,.88))}
 .pass-logo{position:absolute;top:24px;left:50%;transform:translateX(-50%);width:190px}
@@ -225,7 +225,7 @@ main{padding-bottom:calc(90px + env(safe-area-inset-bottom))}
   overflow:hidden;border-radius:44px;border:1px solid rgba(255,255,255,.25);
   background:#090a10;box-shadow:0 25px 65px rgba(0,0,0,.48),inset 0 0 0 5px #000
 }
-.iphone-wallpaper{background-image:url("assets/iphone-wallpaper.jpg")}
+.iphone-wallpaper{background-image:url("iphone-wallpaper.jpg")}
 .iphone-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.30))}
 .dynamic-island{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:112px;height:31px;background:#000;border-radius:999px}
 .iphone-status{position:absolute;top:18px;left:22px;right:22px;display:flex;justify-content:space-between;font-size:.68rem;font-weight:700}
