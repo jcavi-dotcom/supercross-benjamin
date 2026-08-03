@@ -4,14 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#05060c">
-<meta name="apple-mobile-web-app-capable" content="yes">
 <title>Supercross Paris 2026 — Benjamin</title>
 <style>
 :root{
-  --bg:#05060c;--panel:#0d0f18;--panel2:#14111d;
-  --gold:#d8ad53;--gold2:#f4da91;--pink:#ff3ea5;--purple:#7d4dff;
-  --green:#66cf45;--text:#f7f5f2;--muted:#b7b4bf;
-  --line:rgba(216,173,83,.34);--shadow:0 24px 80px rgba(0,0,0,.55)
+  --bg:#05060c;--panel:#0d0f18;--gold:#d8ad53;--gold2:#f4da91;
+  --pink:#ff3ea5;--purple:#7d4dff;--green:#66cf45;
+  --text:#f7f5f2;--muted:#b7b4bf;--line:rgba(216,173,83,.34);
+  --shadow:0 24px 80px rgba(0,0,0,.55)
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -19,26 +18,25 @@ body{
   margin:0;min-height:100vh;color:var(--text);
   font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   background:
-    radial-gradient(circle at 18% 0%,rgba(125,77,255,.22),transparent 30%),
-    radial-gradient(circle at 86% 8%,rgba(255,62,165,.15),transparent 28%),
-    linear-gradient(180deg,#04050a 0%,#080913 45%,#030407 100%);
+    radial-gradient(circle at 18% 0%,rgba(125,77,255,.18),transparent 28%),
+    radial-gradient(circle at 86% 8%,rgba(255,62,165,.12),transparent 26%),
+    linear-gradient(180deg,#04050a 0%,#080913 48%,#030407 100%);
   overflow-x:hidden
 }
 body::before{
-  content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.16;
   background-image:
     linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
     linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
   background-size:28px 28px;
-  mask-image:linear-gradient(to bottom,black,transparent 88%)
+  mask-image:linear-gradient(to bottom,black,transparent 90%)
 }
-.wrap{position:relative;z-index:1;width:min(1040px,calc(100% - 24px));margin:auto;padding:14px 0 70px}
+.wrap{position:relative;z-index:2;width:min(1060px,calc(100% - 20px));margin:auto;padding:14px 0 72px}
 .topbar{display:flex;justify-content:space-between;align-items:center;padding:10px 4px 16px}
 .brand{font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2)}
-.status{display:flex;gap:7px;align-items:center;padding:7px 10px;border:1px solid rgba(102,207,69,.3);border-radius:999px;background:rgba(102,207,69,.07);font-size:.72rem;color:#daf9cf}
+.status{display:flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid rgba(102,207,69,.28);border-radius:999px;background:rgba(102,207,69,.06);font-size:.72rem;color:#daf9cf}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
 
-/* Multi-stage loading */
 .loader-screen{
   position:fixed;inset:0;z-index:100;display:grid;place-items:center;
   background:
@@ -52,7 +50,7 @@ body::before{
 .loader-kicker{letter-spacing:.38em;text-transform:uppercase;color:var(--gold2);font-size:.68rem}
 .loader-title{
   margin:14px 0 0;font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(2.5rem,11vw,5.2rem);line-height:.9;letter-spacing:.03em;
+  font-size:clamp(2.5rem,11vw,5.2rem);line-height:.9;
   background:linear-gradient(180deg,#fff3bd,#c58b29 60%,#f7de95);
   -webkit-background-clip:text;background-clip:text;color:transparent
 }
@@ -60,7 +58,7 @@ body::before{
 .step.active{display:block}
 .step-title{font-size:1.02rem;letter-spacing:.08em}
 .progress{height:4px;margin:18px auto 0;background:rgba(255,255,255,.09);border-radius:99px;overflow:hidden;max-width:330px}
-.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--pink),var(--gold));animation:fill 1.25s ease forwards}
+.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--pink),var(--gold));animation:fill 1.15s ease forwards}
 .verify{margin:18px auto 0;max-width:330px;text-align:left}
 .verify div{padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05)}
 .check{color:var(--green);font-weight:800;margin-right:8px}
@@ -68,56 +66,67 @@ body::before{
 @keyframes fill{to{width:100%}}
 @keyframes stepIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-.hero,.card,.pass-shell{
-  border:1px solid var(--line);box-shadow:var(--shadow);
-  background:
-    radial-gradient(circle at 82% 0%,rgba(255,62,165,.12),transparent 32%),
-    radial-gradient(circle at 10% 12%,rgba(125,77,255,.16),transparent 38%),
-    linear-gradient(145deg,rgba(17,19,31,.98),rgba(7,8,14,.99))
+.hero{
+  position:relative;min-height:650px;border:1px solid var(--line);border-radius:30px;overflow:hidden;
+  box-shadow:var(--shadow);display:flex;align-items:end
 }
-.hero{overflow:hidden;border-radius:30px}
-.hero-content{text-align:center;padding:36px 22px 24px}
-.eyebrow{font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold2)}
+.hero-media{
+  position:absolute;inset:0;background-image:url("hero-supercross.png");
+  background-size:cover;background-position:center 42%;
+  transform:scale(1.05);animation:cinematic 18s ease-in-out infinite alternate
+}
+.hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(3,4,9,.35),rgba(3,4,9,.66) 52%,rgba(3,4,9,.98)),
+    radial-gradient(circle at 50% 35%,transparent 0 24%,rgba(0,0,0,.35) 80%)
+}
+@keyframes cinematic{from{transform:scale(1.05) translateY(0)}to{transform:scale(1.12) translateY(-1.5%)}}
+.hero-content{position:relative;z-index:2;padding:44px 24px 28px;width:100%;text-align:center}
+.eyebrow{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold2)}
 h1{
-  font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.25rem,9vw,4.8rem);
-  line-height:.96;margin:14px 0 8px;
+  font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.45rem,9vw,5.2rem);
+  line-height:.95;margin:14px 0 8px;
   background:linear-gradient(180deg,#fff5cd,#c68a28 65%,#f0d786);
   -webkit-background-clip:text;background-clip:text;color:transparent
 }
 .welcome{font-size:clamp(1.2rem,4.4vw,1.85rem);margin:14px 0 6px}
 .welcome strong{color:var(--gold2)}
-.lead{max-width:650px;margin:10px auto 0;color:var(--muted);line-height:1.6}
-.count-main{font-family:Georgia,"Times New Roman",serif;font-size:clamp(3rem,14vw,7rem);line-height:1;margin:18px 0 8px;color:var(--gold2)}
+.lead{max-width:650px;margin:10px auto 0;color:#ddd9e3;line-height:1.6}
+.count-main{font-family:Georgia,"Times New Roman",serif;font-size:clamp(3rem,14vw,7rem);line-height:1;margin:18px 0 8px;color:var(--gold2);text-shadow:0 0 28px rgba(216,173,83,.22)}
 .count-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:580px;margin:0 auto}
-.count{padding:12px 7px;border-radius:15px;background:#090a11;border:1px solid rgba(216,173,83,.24)}
+.count{padding:12px 7px;border-radius:15px;background:rgba(5,6,12,.72);backdrop-filter:blur(8px);border:1px solid rgba(216,173,83,.24)}
 .count strong{display:block;font-size:clamp(1.25rem,5vw,2rem)}
 .count span{display:block;color:var(--muted);font-size:.66rem;text-transform:uppercase;letter-spacing:.1em}
+
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line)}
-.fact{background:rgba(8,9,15,.96);padding:16px 10px;text-align:center}
+.fact{background:rgba(8,9,15,.95);padding:16px 10px;text-align:center}
 .fact b{display:block;color:var(--gold2);font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;margin-bottom:5px}
 
-.wallet-wrap{margin-top:18px;perspective:1400px}
-.wallet-card{
-  position:relative;min-height:390px;transform-style:preserve-3d;
-  transition:transform .82s cubic-bezier(.2,.75,.2,1);
-  cursor:pointer;outline:none;
+.card,.wallet-wrap{
+  margin-top:18px;border:1px solid var(--line);border-radius:24px;
+  background:
+    radial-gradient(circle at 82% 0%,rgba(255,62,165,.10),transparent 32%),
+    linear-gradient(145deg,rgba(16,17,29,.97),rgba(8,9,15,.98));
+  box-shadow:0 14px 45px rgba(0,0,0,.25)
 }
+.card{padding:21px;opacity:0;transform:translateY(18px);transition:.7s ease}
+.card.show{opacity:1;transform:none}
+.card h2{margin:0 0 16px;color:var(--gold2);font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase}
+
+.wallet-wrap{padding:0;perspective:1400px}
+.wallet-card{position:relative;min-height:390px;transform-style:preserve-3d;transition:transform .82s cubic-bezier(.2,.75,.2,1);cursor:pointer;outline:none}
 .wallet-card.flipped{transform:rotateY(180deg)}
 .wallet-face{
   position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
-  border:1px solid rgba(216,173,83,.44);border-radius:28px;overflow:hidden;
-  box-shadow:0 24px 70px rgba(0,0,0,.5);
+  border-radius:24px;overflow:hidden;
   background:
     radial-gradient(circle at 80% 0%,rgba(255,62,165,.17),transparent 32%),
     radial-gradient(circle at 10% 12%,rgba(125,77,255,.18),transparent 38%),
-    linear-gradient(145deg,#161827,#07080e 75%);
+    linear-gradient(145deg,#161827,#07080e 75%)
 }
 .wallet-face.back{transform:rotateY(180deg)}
-.wallet-shine{
-  position:absolute;inset:-60% -40%;pointer-events:none;
-  background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.11) 50%,transparent 58%);
-  transform:translateX(-35%) rotate(8deg);transition:transform .8s ease;
-}
+.wallet-shine{position:absolute;inset:-60% -40%;pointer-events:none;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.11) 50%,transparent 58%);transform:translateX(-35%) rotate(8deg);transition:transform .8s ease}
 .wallet-card:hover .wallet-shine,.wallet-card:focus .wallet-shine{transform:translateX(35%) rotate(8deg)}
 .wallet-header{display:flex;align-items:flex-start;justify-content:space-between;padding:22px 22px 14px}
 .wallet-logo{font-family:Georgia,"Times New Roman",serif;color:var(--gold2);font-size:1.35rem;line-height:1}
@@ -137,95 +146,76 @@ h1{
 .wallet-back-main .ring{width:82px;height:82px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:2.2rem;margin:auto}
 .wallet-back-main h3{margin:16px 0 6px;color:var(--gold2);font-size:1.18rem}
 .wallet-back-main p{margin:0;color:var(--muted);line-height:1.55}
-.wallet-tap{text-align:center;color:var(--muted);font-size:.75rem;margin-top:9px}
+.wallet-tap{text-align:center;color:var(--muted);font-size:.75rem;padding:10px}
 
-.card{margin-top:18px;padding:21px;border-radius:24px;opacity:0;transform:translateY(18px);transition:.7s ease}
-.card.show{opacity:1;transform:none}
-.card h2{margin:0 0 16px;color:var(--gold2);font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase}
 .visual{overflow:hidden;border-radius:18px;border:1px solid rgba(255,255,255,.08);background:#000}
-.visual img{display:block;width:100%;height:auto}
+.visual img{display:block;width:100%;height:auto;transition:transform 1.25s ease}
+.card.show .visual img{transform:scale(1.025)}
 .caption{padding:14px 15px;background:#090a11;border-top:1px solid var(--line);line-height:1.55}
 .caption strong{color:var(--pink)}
-
 .location-map{position:relative;overflow:hidden}
-.location-pulse{
-  position:absolute;left:50.2%;top:21.9%;width:18px;height:18px;
-  transform:translate(-50%,-50%);border-radius:50%;background:#ff2d6f;
-  border:3px solid #fff;box-shadow:0 0 0 0 rgba(255,45,111,.72);
-  animation:locationPulse 1.8s ease-out infinite;pointer-events:none
-}
-.location-pulse::after{
-  content:"";position:absolute;inset:-10px;border:2px solid rgba(255,45,111,.65);
-  border-radius:50%;animation:locationRing 1.8s ease-out infinite
-}
+.location-pulse{position:absolute;left:50.2%;top:21.9%;width:18px;height:18px;transform:translate(-50%,-50%);border-radius:50%;background:#ff2d6f;border:3px solid #fff;box-shadow:0 0 0 0 rgba(255,45,111,.72);animation:locationPulse 1.8s ease-out infinite;pointer-events:none}
+.location-pulse::after{content:"";position:absolute;inset:-10px;border:2px solid rgba(255,45,111,.65);border-radius:50%;animation:locationRing 1.8s ease-out infinite}
 @keyframes locationPulse{70%{box-shadow:0 0 0 22px rgba(255,45,111,0)}}
 @keyframes locationRing{0%{transform:scale(.6);opacity:.9}75%,100%{transform:scale(1.45);opacity:0}}
 
-.program{display:grid;gap:2px}
-.row{display:grid;grid-template-columns:98px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.media-strip{display:grid;grid-template-columns:1.4fr .8fr;gap:12px}
+.media-item{position:relative;overflow:hidden;border-radius:18px;min-height:260px;border:1px solid rgba(255,255,255,.08)}
+.media-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.1s ease}
+.media-item:hover img{transform:scale(1.05)}
+.media-label{position:absolute;left:14px;bottom:14px;padding:8px 10px;border-radius:999px;background:rgba(5,6,12,.72);backdrop-filter:blur(8px);font-size:.72rem;color:#fff;border:1px solid rgba(255,255,255,.12)}
+
+.timeline{position:relative;padding-left:20px}
+.timeline::before{content:"";position:absolute;left:4px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--pink),var(--gold))}
+.row{position:relative;display:grid;grid-template-columns:98px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.row::before{content:"";position:absolute;left:-20px;top:18px;width:9px;height:9px;border-radius:50%;background:var(--pink);box-shadow:0 0 14px rgba(255,62,165,.7)}
 .row:last-child{border-bottom:0}
 .time{color:var(--pink);font-weight:800;white-space:nowrap}
-.gift{text-align:center;font-size:3rem;margin-bottom:8px}
+
+.gift{text-align:center;font-size:3rem;margin-bottom:8px;animation:float 2.6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-7px)}}
 .small-plus{text-align:center}
 .small-plus p{max-width:620px;margin:auto;color:#e7e1ea;line-height:1.65}
 
-.phone-trigger{
-  width:100%;border:1px solid var(--line);border-radius:18px;padding:15px 17px;
-  display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.035);
-  color:#fff;text-align:left;cursor:pointer
-}
+.phone-trigger{width:100%;border:1px solid var(--line);border-radius:18px;padding:15px 17px;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.035);color:#fff;text-align:left;cursor:pointer}
 .phone-trigger-icon{font-size:1.45rem}
 .phone-trigger b{display:block}
 .phone-trigger span{display:block;margin-top:3px;color:var(--muted);font-size:.82rem}
-.phone-overlay{
-  position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:18px;
-  background:rgba(0,0,0,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  opacity:0;visibility:hidden;transition:.35s ease
-}
+.phone-overlay{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:18px;background:rgba(0,0,0,.72);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:.35s ease}
 .phone-overlay.open{opacity:1;visibility:visible}
-.phone{
-  position:relative;width:min(100%,430px);min-height:560px;padding:15px;
-  border-radius:42px;overflow:hidden;
-  background:
-    radial-gradient(circle at 50% 82%,rgba(240,50,63,.32),transparent 35%),
-    radial-gradient(circle at 24% 18%,rgba(125,77,255,.30),transparent 30%),
-    linear-gradient(160deg,#141522,#06070c 68%);
-  border:1px solid rgba(255,255,255,.23);box-shadow:0 28px 80px rgba(0,0,0,.62),inset 0 0 0 5px #050506;
-  transform:translateY(26px) scale(.97);transition:.5s cubic-bezier(.2,.8,.2,1)
-}
+.phone{position:relative;width:min(100%,430px);min-height:560px;padding:15px;border-radius:42px;overflow:hidden;background:radial-gradient(circle at 50% 82%,rgba(240,50,63,.32),transparent 35%),radial-gradient(circle at 24% 18%,rgba(125,77,255,.30),transparent 30%),linear-gradient(160deg,#141522,#06070c 68%);border:1px solid rgba(255,255,255,.23);box-shadow:0 28px 80px rgba(0,0,0,.62),inset 0 0 0 5px #050506;transform:translateY(26px) scale(.97);transition:.5s cubic-bezier(.2,.8,.2,1)}
 .phone-overlay.open .phone{transform:none}
 .phone-island{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:112px;height:31px;border-radius:999px;background:#000}
 .phone-status{display:flex;justify-content:space-between;padding:5px 9px 0;font-size:.68rem;font-weight:700}
 .phone-clock{text-align:center;margin-top:58px}
 .phone-clock b{display:block;font-size:4.4rem;font-weight:300;line-height:.95}
-.notification{
-  display:grid;grid-template-columns:48px minmax(0,1fr);gap:12px;margin-top:58px;
-  padding:13px 14px;border-radius:20px;background:rgba(238,238,243,.92);
-  color:#111116;text-align:left;box-shadow:0 16px 38px rgba(0,0,0,.34);
-  transform:translateY(-20px);opacity:0;animation:notificationDrop .7s .25s forwards
-}
+.notification{display:grid;grid-template-columns:48px minmax(0,1fr);gap:12px;margin-top:58px;padding:13px 14px;border-radius:20px;background:rgba(238,238,243,.92);color:#111116;text-align:left;box-shadow:0 16px 38px rgba(0,0,0,.34);transform:translateY(-20px);opacity:0;animation:notificationDrop .7s .25s forwards}
 @keyframes notificationDrop{to{transform:none;opacity:1}}
 .notification-icon{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;background:#08090d;color:#fff;font-size:1.35rem}
 .notification small{color:#5d5d63}
 .notification strong{display:block;margin-top:3px;line-height:1.3}
 .notification p{margin:4px 0 0;line-height:1.4}
-.phone-close{
-  position:absolute;top:50px;right:22px;width:34px;height:34px;border-radius:50%;
-  border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.38);color:#fff;cursor:pointer
-}
+.phone-close{position:absolute;top:50px;right:22px;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.38);color:#fff;cursor:pointer}
 .phone-bottom{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);width:126px;height:5px;border-radius:999px;background:rgba(255,255,255,.82)}
-footer{
-  margin-top:24px;padding:18px 12px;border-top:1px solid rgba(255,255,255,.08);
-  text-align:center;color:#777985;font-size:.69rem;line-height:1.55
-}
-footer a{color:#8f919c;text-decoration:underline;text-underline-offset:2px}
 
+.end-panel{text-align:center;padding:34px 20px}
+.end-panel h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.7rem,6vw,3rem);margin:0;color:var(--gold2)}
+.end-panel p{color:var(--muted);margin:10px 0 18px}
+.back-pass{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(216,173,83,.06);color:#fff;padding:11px 15px;border-radius:999px;cursor:pointer}
+
+footer{margin-top:24px;padding:18px 12px;border-top:1px solid rgba(255,255,255,.08);text-align:center;color:#777985;font-size:.69rem;line-height:1.55}
+@media(max-width:720px){
+  .hero{min-height:590px}
+  .facts{grid-template-columns:1fr}
+  .media-strip{grid-template-columns:1fr}
+  .media-item{min-height:220px}
+}
 @media(max-width:620px){
   .wrap{width:min(100% - 16px,1040px)}
-  .hero-content{padding:30px 16px 20px}
-  .facts{grid-template-columns:1fr}
+  .hero-content{padding:34px 16px 22px}
   .card{padding:16px}
   .row{grid-template-columns:84px 1fr}
+  .wallet-card{min-height:405px}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -238,32 +228,10 @@ footer a{color:#8f919c;text-decoration:underline;text-underline-offset:2px}
   <div class="loader-box">
     <div class="loader-kicker">Accès personnel sécurisé</div>
     <div class="loader-title">SUPERCROSS<br>PARIS 2026</div>
-
-    <div class="step active" data-step="0">
-      <div class="step-title">Connexion au serveur…</div>
-      <div class="progress"><span></span></div>
-    </div>
-
-    <div class="step" data-step="1">
-      <div class="step-title">Recherche du pass…</div>
-      <div class="progress"><span></span></div>
-    </div>
-
-    <div class="step" data-step="2">
-      <div class="step-title">PASS DÉTECTÉ</div>
-      <div class="detected">Benjamin Ringue</div>
-      <div style="margin-top:8px;color:var(--muted)">SXP26-0113-035</div>
-    </div>
-
-    <div class="step" data-step="3">
-      <div class="step-title">Contrôle de sécurité</div>
-      <div class="verify">
-        <div><span class="check">✓</span> Billet</div>
-        <div><span class="check">✓</span> Identité</div>
-        <div><span class="check">✓</span> Placement</div>
-        <div><span class="check">✓</span> Accès autorisé</div>
-      </div>
-    </div>
+    <div class="step active"><div class="step-title">Connexion au serveur…</div><div class="progress"><span></span></div></div>
+    <div class="step"><div class="step-title">Recherche du pass…</div><div class="progress"><span></span></div></div>
+    <div class="step"><div class="step-title">PASS DÉTECTÉ</div><div class="detected">Benjamin Ringue</div><div style="margin-top:8px;color:var(--muted)">SXP26-0113-035</div></div>
+    <div class="step"><div class="step-title">Contrôle de sécurité</div><div class="verify"><div><span class="check">✓</span> Billet</div><div><span class="check">✓</span> Identité</div><div><span class="check">✓</span> Placement</div><div><span class="check">✓</span> Accès autorisé</div></div></div>
   </div>
 </div>
 
@@ -273,7 +241,8 @@ footer a{color:#8f919c;text-decoration:underline;text-underline-offset:2px}
     <div class="status"><span class="dot"></span> Accès confirmé</div>
   </div>
 
-  <section class="hero">
+  <section class="hero" id="hero">
+    <div class="hero-media"></div>
     <div class="hero-content">
       <div class="eyebrow">Expérience privée</div>
       <h1>TON ACCÈS<br>SUPERCROSS</h1>
@@ -287,14 +256,15 @@ footer a{color:#8f919c;text-decoration:underline;text-underline-offset:2px}
         <div class="count"><strong id="seconds">—</strong><span>secondes</span></div>
       </div>
     </div>
-    <div class="facts">
-      <div class="fact"><b>Date</b><span>Samedi 21 novembre 2026</span></div>
-      <div class="fact"><b>Lieu</b><span>Paris La Défense Arena</span></div>
-      <div class="fact"><b>Accès</b><span>Zone Moto Verte</span></div>
-    </div>
   </section>
 
-  <div class="wallet-wrap">
+  <div class="facts">
+    <div class="fact"><b>Date</b><span>Samedi 21 novembre 2026</span></div>
+    <div class="fact"><b>Lieu</b><span>Paris La Défense Arena</span></div>
+    <div class="fact"><b>Accès</b><span>Zone Moto Verte</span></div>
+  </div>
+
+  <div class="wallet-wrap" id="eventPass">
     <div class="wallet-card" id="walletCard" role="button" tabindex="0" aria-label="Retourner l’Event Pass">
       <section class="wallet-face front">
         <div class="wallet-shine"></div>
@@ -314,25 +284,26 @@ footer a{color:#8f919c;text-decoration:underline;text-underline-offset:2px}
         </div>
         <div class="wallet-bottom"><span>SXP26-0113-035</span><span>ACCÈS CONFIRMÉ ✓</span></div>
       </section>
-
       <section class="wallet-face back">
         <div class="wallet-shine"></div>
         <div class="wallet-header">
           <div><div class="wallet-logo">EVENT PASS</div><div class="wallet-sub">SUPERCROSS PARIS 2026</div></div>
           <div class="wallet-pill">ACTIF</div>
         </div>
-        <div class="wallet-back-main">
-          <div>
-            <div class="ring">🏁</div>
-            <h3>Accès personnel confirmé</h3>
-            <p>Benjamin Ringue<br>Samedi 21 novembre 2026<br>Paris La Défense Arena</p>
-          </div>
-        </div>
+        <div class="wallet-back-main"><div><div class="ring">🏁</div><h3>Accès personnel confirmé</h3><p>Benjamin Ringue<br>Samedi 21 novembre 2026<br>Paris La Défense Arena</p></div></div>
         <div class="wallet-bottom"><span>PASS N° SXP26-0113-035</span><span>ZONE MOTO VERTE</span></div>
       </section>
     </div>
     <div class="wallet-tap">Touchez l’Event Pass pour le retourner</div>
   </div>
+
+  <section class="card">
+    <h2>Ambiance Supercross</h2>
+    <div class="media-strip">
+      <div class="media-item"><img src="piste-2026.png" alt="Piste du Supercross Paris 2026"><div class="media-label">La piste 2026</div></div>
+      <div class="media-item"><img src="ambiance-pass.png" alt="Univers graphique du Supercross Paris"><div class="media-label">L’expérience</div></div>
+    </div>
+  </section>
 
   <section class="card">
     <h2>Ton emplacement</h2>
@@ -341,21 +312,13 @@ footer a{color:#8f919c;text-decoration:underline;text-underline-offset:2px}
         <img src="emplacement-113-21-35.png" alt="Plan de la salle indiquant la Porte 113, Rang 21, Place 35">
         <span class="location-pulse" aria-hidden="true"></span>
       </div>
-      <div class="caption">
-        <strong>Votre emplacement :</strong> Porte 113 • Rang 21 • Place 35.<br>
-        Zone Moto Verte, avec une vue panoramique sur la piste et les principaux sauts.
-      </div>
+      <div class="caption"><strong>Votre emplacement :</strong> Porte 113 • Rang 21 • Place 35.<br>Zone Moto Verte, avec une vue panoramique sur la piste et les principaux sauts.</div>
     </div>
   </section>
 
   <section class="card">
-    <h2>La piste 2026</h2>
-    <div class="visual"><img src="piste-2026.png" alt="Vue 3D de la piste 2026"></div>
-  </section>
-
-  <section class="card">
-    <h2>Programme de la journée</h2>
-    <div class="program">
+    <h2>Programme officiel</h2>
+    <div class="timeline">
       <div class="row"><div class="time">14 h 00</div><div>Ouverture de la salle</div></div>
       <div class="row"><div class="time">14 h–16 h</div><div>Essais et qualifications</div></div>
       <div class="row"><div class="time">16 h 00</div><div>Séance de dédicaces pilotes</div></div>
@@ -381,109 +344,97 @@ footer a{color:#8f919c;text-decoration:underline;text-underline-offset:2px}
     </button>
   </section>
 
+  <section class="card end-panel">
+    <h2>21 novembre 2026</h2>
+    <p>Paris La Défense Arena • Supercross Paris</p>
+    <button class="back-pass" id="backToPass" type="button">↑ Revoir l’Event Pass</button>
+  </section>
+
   <footer>
     Conçu avec ❤️ spécialement pour Benjamin.<br>
     Expérience privée et non officielle, créée uniquement à des fins personnelles.
-    Les marques, noms et visuels de l’événement restent la propriété de leurs titulaires respectifs.
   </footer>
-
-  <div class="phone-overlay" id="phoneOverlay" aria-hidden="true">
-    <div class="phone" role="dialog" aria-modal="true" aria-label="Message pour Benjamin">
-      <button class="phone-close" id="closeMessage" type="button" aria-label="Fermer">×</button>
-      <div class="phone-island"></div>
-      <div class="phone-status"><span id="statusTime">10:45</span><span>●●● Wi‑Fi ▰</span></div>
-      <div class="phone-clock"><b id="phoneClock">10:45</b><span>Samedi 21 novembre</span></div>
-      <div class="notification">
-        <div class="notification-icon">🏁</div>
-        <div>
-          <small>SUPERCROSS PARIS • maintenant</small>
-          <strong>Joyeux anniversaire Benjamin ! 🔥🏍️❤️</strong>
-          <p>Prépare-toi à vivre une journée mémorable.</p>
-        </div>
-      </div>
-      <div class="phone-bottom"></div>
-    </div>
-  </div>
 </main>
+
+<div class="phone-overlay" id="phoneOverlay" aria-hidden="true">
+  <div class="phone" role="dialog" aria-modal="true" aria-label="Message pour Benjamin">
+    <button class="phone-close" id="closeMessage" type="button" aria-label="Fermer">×</button>
+    <div class="phone-island"></div>
+    <div class="phone-status"><span id="statusTime">10:45</span><span>●●● Wi‑Fi ▰</span></div>
+    <div class="phone-clock"><b id="phoneClock">10:45</b><span>Samedi 21 novembre</span></div>
+    <div class="notification">
+      <div class="notification-icon">🏁</div>
+      <div>
+        <small>SUPERCROSS PARIS • maintenant</small>
+        <strong>Joyeux anniversaire Benjamin ! 🔥🏍️❤️</strong>
+        <p>Prépare-toi à vivre une journée mémorable.</p>
+      </div>
+    </div>
+    <div class="phone-bottom"></div>
+  </div>
+</div>
 
 <script>
 const steps=[...document.querySelectorAll(".step")];
 let current=0;
-function showStep(index){
-  steps.forEach((s,i)=>s.classList.toggle("active",i===index));
-}
-function next(){
+function showStep(i){steps.forEach((s,n)=>s.classList.toggle("active",n===i))}
+function nextStep(){
   current++;
   if(current<steps.length){
     showStep(current);
-    if(current===3 && navigator.vibrate){navigator.vibrate([120,70,120]);}
-    setTimeout(next,current===2?1200:1450);
-  }else{
-    document.getElementById("loader").classList.add("done");
-  }
+    if(current===3&&navigator.vibrate)navigator.vibrate([120,70,120]);
+    setTimeout(nextStep,current===2?1100:1350);
+  }else document.getElementById("loader").classList.add("done");
 }
-setTimeout(next,1450);
+setTimeout(nextStep,1350);
 
 const target=new Date("2026-11-21T14:00:00+01:00").getTime();
 function updateCountdown(){
   const diff=Math.max(0,target-Date.now());
-  const d=Math.floor(diff/86400000);
   document.getElementById("dayMain").textContent="J-"+Math.ceil(diff/86400000);
-  document.getElementById("days").textContent=String(d).padStart(2,"0");
+  document.getElementById("days").textContent=String(Math.floor(diff/86400000)).padStart(2,"0");
   document.getElementById("hours").textContent=String(Math.floor((diff%86400000)/3600000)).padStart(2,"0");
   document.getElementById("minutes").textContent=String(Math.floor((diff%3600000)/60000)).padStart(2,"0");
   document.getElementById("seconds").textContent=String(Math.floor((diff%60000)/1000)).padStart(2,"0");
 }
 updateCountdown();setInterval(updateCountdown,1000);
 
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")});
-},{threshold:.12});
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")}),{threshold:.12});
 document.querySelectorAll(".card").forEach(el=>observer.observe(el));
 
-function updatePhoneTime(){
-  const v=new Date().toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"});
-  document.getElementById("statusTime").textContent=v;
-  document.getElementById("phoneClock").textContent=v;
-}
-updatePhoneTime();setInterval(updatePhoneTime,30000);
-
-
 const walletCard=document.getElementById("walletCard");
-function flipWallet(){walletCard.classList.toggle("flipped")}
+function flipWallet(){
+  walletCard.classList.toggle("flipped");
+  if(navigator.vibrate)navigator.vibrate(35);
+}
 walletCard.addEventListener("click",flipWallet);
-walletCard.addEventListener("keydown",e=>{
-  if(e.key==="Enter"||e.key===" "){e.preventDefault();flipWallet();}
-});
+walletCard.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();flipWallet()}});
 
 const phoneOverlay=document.getElementById("phoneOverlay");
-const openMessage=document.getElementById("openMessage");
-const closeMessage=document.getElementById("closeMessage");
-function openPhoneMessage(){
+function openPhone(){
   phoneOverlay.classList.add("open");
   phoneOverlay.setAttribute("aria-hidden","false");
   document.body.style.overflow="hidden";
   if(navigator.vibrate)navigator.vibrate([70,40,110]);
 }
-function closePhoneMessage(){
+function closePhone(){
   phoneOverlay.classList.remove("open");
   phoneOverlay.setAttribute("aria-hidden","true");
   document.body.style.overflow="";
 }
-openMessage.addEventListener("click",openPhoneMessage);
-closeMessage.addEventListener("click",closePhoneMessage);
-phoneOverlay.addEventListener("click",e=>{if(e.target===phoneOverlay)closePhoneMessage();});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closePhoneMessage();});
+document.getElementById("openMessage").addEventListener("click",openPhone);
+document.getElementById("closeMessage").addEventListener("click",closePhone);
+phoneOverlay.addEventListener("click",e=>{if(e.target===phoneOverlay)closePhone()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closePhone()});
 
-/* A vibration on first user interaction improves compatibility on mobile browsers */
-let interacted=false;
-function firstInteraction(){
-  if(interacted)return;
-  interacted=true;
-  if(navigator.vibrate)navigator.vibrate(55);
+document.getElementById("backToPass").addEventListener("click",()=>document.getElementById("eventPass").scrollIntoView({behavior:"smooth",block:"center"}));
+
+function updatePhoneTime(){
+  const t=new Date().toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"});
+  document.getElementById("statusTime").textContent=t;
+  document.getElementById("phoneClock").textContent=t;
 }
-document.addEventListener("touchstart",firstInteraction,{once:true});
-document.addEventListener("click",firstInteraction,{once:true});
+updatePhoneTime();setInterval(updatePhoneTime,30000);
 </script>
 </body>
 </html>
