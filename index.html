@@ -96,19 +96,48 @@ h1{
 .fact{background:rgba(8,9,15,.96);padding:16px 10px;text-align:center}
 .fact b{display:block;color:var(--gold2);font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;margin-bottom:5px}
 
-.pass-shell{margin-top:18px;border-radius:24px;overflow:hidden}
-.pass-top{display:flex;justify-content:space-between;align-items:flex-start;padding:20px}
-.pass-title{font-family:Georgia,"Times New Roman",serif;font-size:1.45rem;color:var(--gold2)}
-.pass-id{color:var(--muted);font-size:.75rem;margin-top:5px}
-.badge{padding:7px 10px;border-radius:999px;background:rgba(216,173,83,.1);border:1px solid var(--line);color:var(--gold2);font-size:.72rem;letter-spacing:.12em}
-.pass-name{padding:18px 20px;border-top:1px dashed rgba(255,255,255,.14);border-bottom:1px dashed rgba(255,255,255,.14)}
-.pass-name small{display:block;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
-.pass-name strong{display:block;font-size:1.45rem;margin-top:3px}
-.pass-seat{display:grid;grid-template-columns:repeat(3,1fr)}
-.pass-seat div{text-align:center;padding:15px 10px;border-right:1px solid rgba(255,255,255,.07)}
-.pass-seat div:last-child{border-right:0}
-.pass-seat span{display:block;color:var(--muted);font-size:.68rem;text-transform:uppercase;letter-spacing:.11em}
-.pass-seat b{display:block;color:var(--green);font-size:1.5rem;margin-top:3px}
+.wallet-wrap{margin-top:18px;perspective:1400px}
+.wallet-card{
+  position:relative;min-height:390px;transform-style:preserve-3d;
+  transition:transform .82s cubic-bezier(.2,.75,.2,1);
+  cursor:pointer;outline:none;
+}
+.wallet-card.flipped{transform:rotateY(180deg)}
+.wallet-face{
+  position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  border:1px solid rgba(216,173,83,.44);border-radius:28px;overflow:hidden;
+  box-shadow:0 24px 70px rgba(0,0,0,.5);
+  background:
+    radial-gradient(circle at 80% 0%,rgba(255,62,165,.17),transparent 32%),
+    radial-gradient(circle at 10% 12%,rgba(125,77,255,.18),transparent 38%),
+    linear-gradient(145deg,#161827,#07080e 75%);
+}
+.wallet-face.back{transform:rotateY(180deg)}
+.wallet-shine{
+  position:absolute;inset:-60% -40%;pointer-events:none;
+  background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.11) 50%,transparent 58%);
+  transform:translateX(-35%) rotate(8deg);transition:transform .8s ease;
+}
+.wallet-card:hover .wallet-shine,.wallet-card:focus .wallet-shine{transform:translateX(35%) rotate(8deg)}
+.wallet-header{display:flex;align-items:flex-start;justify-content:space-between;padding:22px 22px 14px}
+.wallet-logo{font-family:Georgia,"Times New Roman",serif;color:var(--gold2);font-size:1.35rem;line-height:1}
+.wallet-sub{margin-top:6px;color:var(--muted);font-size:.72rem;letter-spacing:.12em}
+.wallet-pill{padding:7px 10px;border-radius:999px;border:1px solid var(--line);color:var(--gold2);font-size:.7rem;letter-spacing:.12em;background:rgba(216,173,83,.08)}
+.wallet-hero{padding:26px 22px 22px;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px dashed rgba(255,255,255,.15)}
+.wallet-hero small{display:block;color:var(--muted);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}
+.wallet-hero strong{display:block;margin-top:5px;font-size:clamp(1.65rem,7vw,2.65rem);letter-spacing:.04em}
+.wallet-date{margin-top:14px;color:#f1e8d4;font-size:.92rem}
+.wallet-seat{display:grid;grid-template-columns:repeat(3,1fr)}
+.wallet-seat div{text-align:center;padding:17px 10px;border-right:1px solid rgba(255,255,255,.07)}
+.wallet-seat div:last-child{border-right:0}
+.wallet-seat span{display:block;color:var(--muted);font-size:.67rem;text-transform:uppercase;letter-spacing:.12em}
+.wallet-seat b{display:block;color:var(--green);font-size:1.55rem;margin-top:4px}
+.wallet-bottom{display:flex;justify-content:space-between;gap:12px;padding:14px 20px;color:var(--muted);font-size:.72rem}
+.wallet-back-main{display:grid;place-items:center;min-height:300px;padding:24px;text-align:center}
+.wallet-back-main .ring{width:82px;height:82px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:2.2rem;margin:auto}
+.wallet-back-main h3{margin:16px 0 6px;color:var(--gold2);font-size:1.18rem}
+.wallet-back-main p{margin:0;color:var(--muted);line-height:1.55}
+.wallet-tap{text-align:center;color:var(--muted);font-size:.75rem;margin-top:9px}
 
 .card{margin-top:18px;padding:21px;border-radius:24px;opacity:0;transform:translateY(18px);transition:.7s ease}
 .card.show{opacity:1;transform:none}
@@ -140,15 +169,31 @@ h1{
 .small-plus{text-align:center}
 .small-plus p{max-width:620px;margin:auto;color:#e7e1ea;line-height:1.65}
 
+.phone-trigger{
+  width:100%;border:1px solid var(--line);border-radius:18px;padding:15px 17px;
+  display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.035);
+  color:#fff;text-align:left;cursor:pointer
+}
+.phone-trigger-icon{font-size:1.45rem}
+.phone-trigger b{display:block}
+.phone-trigger span{display:block;margin-top:3px;color:var(--muted);font-size:.82rem}
+.phone-overlay{
+  position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:18px;
+  background:rgba(0,0,0,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  opacity:0;visibility:hidden;transition:.35s ease
+}
+.phone-overlay.open{opacity:1;visibility:visible}
 .phone{
-  position:relative;width:min(100%,430px);min-height:520px;margin:auto;padding:15px;
+  position:relative;width:min(100%,430px);min-height:560px;padding:15px;
   border-radius:42px;overflow:hidden;
   background:
     radial-gradient(circle at 50% 82%,rgba(240,50,63,.32),transparent 35%),
     radial-gradient(circle at 24% 18%,rgba(125,77,255,.30),transparent 30%),
     linear-gradient(160deg,#141522,#06070c 68%);
-  border:1px solid rgba(255,255,255,.23);box-shadow:0 28px 80px rgba(0,0,0,.52),inset 0 0 0 5px #050506
+  border:1px solid rgba(255,255,255,.23);box-shadow:0 28px 80px rgba(0,0,0,.62),inset 0 0 0 5px #050506;
+  transform:translateY(26px) scale(.97);transition:.5s cubic-bezier(.2,.8,.2,1)
 }
+.phone-overlay.open .phone{transform:none}
 .phone-island{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:112px;height:31px;border-radius:999px;background:#000}
 .phone-status{display:flex;justify-content:space-between;padding:5px 9px 0;font-size:.68rem;font-weight:700}
 .phone-clock{text-align:center;margin-top:58px}
@@ -156,19 +201,24 @@ h1{
 .notification{
   display:grid;grid-template-columns:48px minmax(0,1fr);gap:12px;margin-top:58px;
   padding:13px 14px;border-radius:20px;background:rgba(238,238,243,.92);
-  color:#111116;text-align:left;box-shadow:0 16px 38px rgba(0,0,0,.34)
+  color:#111116;text-align:left;box-shadow:0 16px 38px rgba(0,0,0,.34);
+  transform:translateY(-20px);opacity:0;animation:notificationDrop .7s .25s forwards
 }
+@keyframes notificationDrop{to{transform:none;opacity:1}}
 .notification-icon{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;background:#08090d;color:#fff;font-size:1.35rem}
 .notification small{color:#5d5d63}
 .notification strong{display:block;margin-top:3px;line-height:1.3}
 .notification p{margin:4px 0 0;line-height:1.4}
-.phone-bottom{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);width:126px;height:5px;border-radius:999px;background:rgba(255,255,255,.82)}
-.signature{
-  margin-top:20px;padding:19px;text-align:center;border:1px solid var(--line);
-  border-radius:18px;background:rgba(255,255,255,.025);
-  font-family:Georgia,"Times New Roman",serif;color:var(--gold2);font-style:italic
+.phone-close{
+  position:absolute;top:50px;right:22px;width:34px;height:34px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.38);color:#fff;cursor:pointer
 }
-footer{text-align:center;color:#74757d;font-size:.75rem;margin-top:22px}
+.phone-bottom{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);width:126px;height:5px;border-radius:999px;background:rgba(255,255,255,.82)}
+footer{
+  margin-top:24px;padding:18px 12px;border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;color:#777985;font-size:.69rem;line-height:1.55
+}
+footer a{color:#8f919c;text-decoration:underline;text-underline-offset:2px}
 
 @media(max-width:620px){
   .wrap{width:min(100% - 16px,1040px)}
@@ -244,18 +294,45 @@ footer{text-align:center;color:#74757d;font-size:.75rem;margin-top:22px}
     </div>
   </section>
 
-  <section class="pass-shell">
-    <div class="pass-top">
-      <div><div class="pass-title">EVENT PASS</div><div class="pass-id">SXP26-0113-035</div></div>
-      <div class="badge">PASS ACCÈS</div>
+  <div class="wallet-wrap">
+    <div class="wallet-card" id="walletCard" role="button" tabindex="0" aria-label="Retourner l’Event Pass">
+      <section class="wallet-face front">
+        <div class="wallet-shine"></div>
+        <div class="wallet-header">
+          <div><div class="wallet-logo">SUPERCROSS PARIS</div><div class="wallet-sub">21 NOVEMBRE 2026</div></div>
+          <div class="wallet-pill">EVENT PASS</div>
+        </div>
+        <div class="wallet-hero">
+          <small>Titulaire</small>
+          <strong>BENJAMIN RINGUE</strong>
+          <div class="wallet-date">Paris La Défense Arena • Zone Moto Verte</div>
+        </div>
+        <div class="wallet-seat">
+          <div><span>Porte</span><b>113</b></div>
+          <div><span>Rang</span><b>21</b></div>
+          <div><span>Place</span><b>35</b></div>
+        </div>
+        <div class="wallet-bottom"><span>SXP26-0113-035</span><span>ACCÈS CONFIRMÉ ✓</span></div>
+      </section>
+
+      <section class="wallet-face back">
+        <div class="wallet-shine"></div>
+        <div class="wallet-header">
+          <div><div class="wallet-logo">EVENT PASS</div><div class="wallet-sub">SUPERCROSS PARIS 2026</div></div>
+          <div class="wallet-pill">ACTIF</div>
+        </div>
+        <div class="wallet-back-main">
+          <div>
+            <div class="ring">🏁</div>
+            <h3>Accès personnel confirmé</h3>
+            <p>Benjamin Ringue<br>Samedi 21 novembre 2026<br>Paris La Défense Arena</p>
+          </div>
+        </div>
+        <div class="wallet-bottom"><span>PASS N° SXP26-0113-035</span><span>ZONE MOTO VERTE</span></div>
+      </section>
     </div>
-    <div class="pass-name"><small>Titulaire</small><strong>BENJAMIN RINGUE</strong></div>
-    <div class="pass-seat">
-      <div><span>Porte</span><b>113</b></div>
-      <div><span>Rang</span><b>21</b></div>
-      <div><span>Place</span><b>35</b></div>
-    </div>
-  </section>
+    <div class="wallet-tap">Touchez l’Event Pass pour le retourner</div>
+  </div>
 
   <section class="card">
     <h2>Ton emplacement</h2>
@@ -298,7 +375,21 @@ footer{text-align:center;color:#74757d;font-size:.75rem;margin-top:22px}
 
   <section class="card">
     <h2>Message pour Benjamin</h2>
-    <div class="phone">
+    <button class="phone-trigger" id="openMessage" type="button">
+      <span class="phone-trigger-icon">📲</span>
+      <span><b>Une notification vous attend</b><span>Toucher pour afficher le message</span></span>
+    </button>
+  </section>
+
+  <footer>
+    Conçu avec ❤️ spécialement pour Benjamin.<br>
+    Expérience privée et non officielle, créée uniquement à des fins personnelles.
+    Les marques, noms et visuels de l’événement restent la propriété de leurs titulaires respectifs.
+  </footer>
+
+  <div class="phone-overlay" id="phoneOverlay" aria-hidden="true">
+    <div class="phone" role="dialog" aria-modal="true" aria-label="Message pour Benjamin">
+      <button class="phone-close" id="closeMessage" type="button" aria-label="Fermer">×</button>
       <div class="phone-island"></div>
       <div class="phone-status"><span id="statusTime">10:45</span><span>●●● Wi‑Fi ▰</span></div>
       <div class="phone-clock"><b id="phoneClock">10:45</b><span>Samedi 21 novembre</span></div>
@@ -312,10 +403,7 @@ footer{text-align:center;color:#74757d;font-size:.75rem;margin-top:22px}
       </div>
       <div class="phone-bottom"></div>
     </div>
-  </section>
-
-  <div class="signature">Conçu avec ❤️ spécialement pour Benjamin.</div>
-  <footer>Page souvenir personnalisée — Supercross Paris 2026</footer>
+  </div>
 </main>
 
 <script>
@@ -359,6 +447,33 @@ function updatePhoneTime(){
   document.getElementById("phoneClock").textContent=v;
 }
 updatePhoneTime();setInterval(updatePhoneTime,30000);
+
+
+const walletCard=document.getElementById("walletCard");
+function flipWallet(){walletCard.classList.toggle("flipped")}
+walletCard.addEventListener("click",flipWallet);
+walletCard.addEventListener("keydown",e=>{
+  if(e.key==="Enter"||e.key===" "){e.preventDefault();flipWallet();}
+});
+
+const phoneOverlay=document.getElementById("phoneOverlay");
+const openMessage=document.getElementById("openMessage");
+const closeMessage=document.getElementById("closeMessage");
+function openPhoneMessage(){
+  phoneOverlay.classList.add("open");
+  phoneOverlay.setAttribute("aria-hidden","false");
+  document.body.style.overflow="hidden";
+  if(navigator.vibrate)navigator.vibrate([70,40,110]);
+}
+function closePhoneMessage(){
+  phoneOverlay.classList.remove("open");
+  phoneOverlay.setAttribute("aria-hidden","true");
+  document.body.style.overflow="";
+}
+openMessage.addEventListener("click",openPhoneMessage);
+closeMessage.addEventListener("click",closePhoneMessage);
+phoneOverlay.addEventListener("click",e=>{if(e.target===phoneOverlay)closePhoneMessage();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closePhoneMessage();});
 
 /* A vibration on first user interaction improves compatibility on mobile browsers */
 let interacted=false;
