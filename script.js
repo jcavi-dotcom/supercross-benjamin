@@ -84,3 +84,39 @@ const navObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.45 });
 
 sections.forEach(section => navObserver.observe(section));
+
+
+// Premium gift reveal
+const giftButton = document.getElementById('giftButton');
+const posterModal = document.getElementById('posterModal');
+const posterClose = document.getElementById('posterClose');
+
+function openPoster() {
+  posterModal?.classList.add('open');
+  posterModal?.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('poster-open');
+  if (navigator.vibrate) navigator.vibrate([45, 30, 85]);
+}
+
+function closePoster() {
+  posterModal?.classList.remove('open');
+  posterModal?.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('poster-open');
+  if (navigator.vibrate) navigator.vibrate(30);
+}
+
+giftButton?.addEventListener('click', openPoster);
+posterClose?.addEventListener('click', closePoster);
+
+// Clicking either the poster itself or the dark background returns to the site.
+posterModal?.addEventListener('click', (event) => {
+  if (event.target === posterModal || event.target.closest('.poster-modal-inner img')) {
+    closePoster();
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && posterModal?.classList.contains('open')) {
+    closePoster();
+  }
+});

@@ -59,9 +59,12 @@
     </section>
 
     <section class="section pass-section" id="pass">
-      <div class="section-title">
-        <span>Votre Event Pass</span>
-        <small>Touchez pour retourner</small>
+      <div class="section-title pass-section-title">
+        <div class="premium-pass-heading">
+          <small class="premium-kicker">SUPERCROSS PARIS 2026</small>
+          <span>Votre <em>Event Pass</em></span>
+        </div>
+        <small class="flip-hint">Touchez pour retourner</small>
       </div>
 
       <button class="event-pass" id="eventPass" type="button" aria-label="Retourner l'Event Pass">
@@ -135,11 +138,32 @@
       </div>
     </section>
 
-    <section class="section surprise-section">
-      <div class="gift-icon">🎁</div>
+    <section class="section surprise-section" id="surprise">
+      <p class="surprise-kicker">SURPRISE EXCLUSIVE</p>
       <h2>Le petit plus</h2>
-      <p>D'autres petites surprises t'attendent sur place…</p>
+      <p class="surprise-copy">Il y a encore quelque chose pour toi…</p>
+
+      <button class="gift-button" id="giftButton" type="button" aria-label="Ouvrir la surprise">
+        <span class="gift-glow" aria-hidden="true"></span>
+        <span class="gift-box" aria-hidden="true">
+          <span class="gift-lid"></span>
+          <span class="gift-body"></span>
+          <span class="gift-ribbon-v"></span>
+          <span class="gift-ribbon-h"></span>
+          <span class="gift-bow gift-bow-left"></span>
+          <span class="gift-bow gift-bow-right"></span>
+        </span>
+        <span class="gift-label">Toucher pour découvrir</span>
+      </button>
     </section>
+
+    <div class="poster-modal" id="posterModal" aria-hidden="true">
+      <button class="poster-close" id="posterClose" type="button" aria-label="Fermer l'affiche">×</button>
+      <div class="poster-modal-inner">
+        <img src="affiche-benjamin-225.png" alt="Affiche personnalisée Supercross Paris de Benjamin Ringue">
+        <p>Touchez l'affiche pour revenir</p>
+      </div>
+    </div>
 
     <section class="section notification-section" id="message">
       <div class="section-title">
