@@ -792,3 +792,431 @@ body.poster-open{
     font-size:clamp(1.85rem,9.7vw,2.8rem);
   }
 }
+
+
+/* =========================================================
+   V5 — HERO / COUNTDOWN PREMIUM + FLIP PASS SAFARI-SAFE
+   ========================================================= */
+
+/* ----- Premium hero heading ----- */
+.premium-welcome{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:9px;
+}
+.premium-welcome .welcome-line{
+  width:34px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#c99f3d);
+  box-shadow:0 0 8px rgba(212,172,70,.18);
+}
+.premium-welcome .welcome-line:last-child{
+  transform:scaleX(-1);
+}
+.eyebrow{
+  margin:0;
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  gap:5px;
+  font-family:"Arial Narrow","Helvetica Neue Condensed","Roboto Condensed",Impact,Arial,sans-serif;
+  font-size:.64rem;
+  font-weight:800;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#bdb9ae;
+}
+.eyebrow strong{
+  font-size:.78rem;
+  font-weight:900;
+  letter-spacing:.16em;
+  background:linear-gradient(180deg,#fff4c2 0%,#e3b64d 48%,#9d6715 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 1px 5px rgba(0,0,0,.55));
+}
+.premium-hero-title{
+  margin:0 auto 20px;
+  text-align:center;
+  padding-bottom:13px;
+  font-size:clamp(2.05rem,10.4vw,3.45rem);
+  letter-spacing:.035em;
+}
+.premium-hero-title::after{
+  left:50%;
+  transform:translateX(-50%);
+  width:170px;
+  height:2px;
+  background:
+    linear-gradient(90deg,transparent 0%,#c99e3b 16%,#f6dc83 46%,#ff2aa7 73%,transparent 100%);
+}
+.premium-hero-title em{
+  display:inline;
+  margin:0;
+}
+
+/* ----- Countdown as an official credential module ----- */
+.countdown-panel{
+  position:relative;
+  overflow:hidden;
+  padding:17px 13px 14px;
+  border:1px solid rgba(211,169,69,.72);
+  border-radius:18px;
+  background:
+    linear-gradient(145deg,rgba(20,19,18,.94),rgba(5,5,6,.96) 58%,rgba(13,10,12,.96));
+  box-shadow:
+    0 24px 55px rgba(0,0,0,.38),
+    inset 0 1px 0 rgba(255,255,255,.055),
+    inset 0 0 0 1px rgba(255,42,167,.025);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+.countdown-panel::before{
+  content:"";
+  position:absolute;
+  inset:7px;
+  pointer-events:none;
+  border:1px solid rgba(240,211,133,.12);
+  border-radius:13px;
+}
+.countdown-panel::after{
+  content:"EVENT COUNTDOWN";
+  position:absolute;
+  top:9px;
+  right:15px;
+  color:rgba(230,190,87,.70);
+  font-family:"Arial Narrow","Helvetica Neue Condensed",Impact,Arial,sans-serif;
+  font-size:.45rem;
+  font-weight:800;
+  letter-spacing:.20em;
+}
+.days-left{
+  position:relative;
+  z-index:1;
+  width:max-content;
+  margin:4px auto 0;
+  font-family:"Arial Narrow","Helvetica Neue Condensed","Roboto Condensed",Impact,Arial,sans-serif;
+  font-size:clamp(2.8rem,15vw,4.6rem);
+  line-height:.9;
+  font-weight:900;
+  letter-spacing:-.035em;
+  background:linear-gradient(180deg,#fff0b1 0%,#dfae3e 44%,#8e590d 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 4px 10px rgba(0,0,0,.7));
+}
+.countdown-panel>p{
+  position:relative;
+  z-index:1;
+  width:max-content;
+  margin:6px auto 12px;
+  padding:3px 10px;
+  color:#c8c4b8;
+  border-top:1px solid rgba(211,169,69,.26);
+  border-bottom:1px solid rgba(211,169,69,.26);
+  font-size:.56rem;
+  font-weight:700;
+  letter-spacing:.22em;
+}
+.countdown-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:5px;
+  padding:7px;
+  border:1px solid rgba(213,170,70,.34);
+  border-radius:13px;
+  background:rgba(0,0,0,.34);
+}
+.countdown-grid div{
+  position:relative;
+  padding:10px 1px 8px;
+  border:0;
+  border-radius:0;
+  background:transparent;
+}
+.countdown-grid div:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  right:-3px;
+  top:15%;
+  bottom:15%;
+  width:1px;
+  background:linear-gradient(180deg,transparent,rgba(216,174,72,.58),transparent);
+}
+.countdown-grid strong{
+  display:block;
+  font-family:"Arial Narrow","Helvetica Neue Condensed","Roboto Condensed",Impact,Arial,sans-serif;
+  font-size:1.58rem;
+  font-weight:900;
+  line-height:1;
+  background:linear-gradient(180deg,#fff4c8 0%,#e0b24b 47%,#976218 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:none;
+}
+.countdown-grid span{
+  display:block;
+  margin-top:5px;
+  color:#c0bdb7;
+  font-size:.48rem;
+  font-weight:700;
+  letter-spacing:.10em;
+}
+.event-info{
+  position:relative;
+  z-index:1;
+  grid-template-columns:1fr;
+  gap:5px;
+  margin-top:9px;
+}
+.event-info div{
+  min-height:37px;
+  grid-template-columns:52px 1fr;
+  padding:7px 9px;
+  border:1px solid rgba(255,255,255,.045);
+  border-radius:8px;
+  background:linear-gradient(90deg,rgba(255,255,255,.032),rgba(255,255,255,.012));
+}
+.event-info span{
+  color:#d5aa46;
+  font-size:.50rem;
+  letter-spacing:.08em;
+}
+.event-info strong{
+  color:#eeeae0;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.02em;
+}
+
+/* =========================================================
+   Pass flip:
+   instead of rotating the whole parent, each face rotates.
+   This fixes mirrored text on iOS/Safari.
+   ========================================================= */
+.pass-inner{
+  transform:none !important;
+  transform-style:preserve-3d;
+  transition:none !important;
+}
+.event-pass.flipped .pass-inner{
+  transform:none !important;
+}
+.pass-face{
+  transform-style:preserve-3d;
+  -webkit-transform-style:preserve-3d;
+  -webkit-backface-visibility:hidden !important;
+  backface-visibility:hidden !important;
+  transition:
+    transform .78s cubic-bezier(.22,.78,.2,1),
+    opacity .28s ease;
+  will-change:transform;
+}
+.pass-front{
+  transform:rotateY(0deg);
+  -webkit-transform:rotateY(0deg);
+  opacity:1;
+}
+.pass-back{
+  transform:rotateY(180deg);
+  -webkit-transform:rotateY(180deg);
+  opacity:0;
+}
+.event-pass.flipped .pass-front{
+  transform:rotateY(-180deg);
+  -webkit-transform:rotateY(-180deg);
+  opacity:0;
+}
+.event-pass.flipped .pass-back{
+  transform:rotateY(0deg);
+  -webkit-transform:rotateY(0deg);
+  opacity:1;
+}
+
+/* ----- New premium back face ----- */
+.pass-back .pass-image{
+  background-position:62% center;
+  filter:saturate(.70) brightness(.62) contrast(1.08);
+}
+.pass-back .pass-overlay.dark{
+  background:
+    radial-gradient(circle at 50% 25%,rgba(26,106,57,.12),transparent 31%),
+    linear-gradient(180deg,rgba(2,5,3,.45),rgba(1,7,3,.82) 53%,rgba(0,0,0,.97));
+}
+.back-premium-top{
+  position:absolute;
+  z-index:4;
+  top:27px;
+  left:0;
+  right:0;
+  text-align:center;
+  color:#d2aa4e;
+  font-family:"Arial Narrow","Helvetica Neue Condensed",Impact,Arial,sans-serif;
+  font-size:.57rem;
+  font-weight:900;
+  letter-spacing:.22em;
+}
+.back-premium-top::after{
+  content:"";
+  display:block;
+  width:76px;
+  height:1px;
+  margin:9px auto 0;
+  background:linear-gradient(90deg,transparent,#d4aa4c,transparent);
+}
+.premium-green-zone{
+  top:108px;
+  z-index:4;
+  font-family:"Arial Narrow","Helvetica Neue Condensed","Roboto Condensed",Impact,Arial,sans-serif;
+  font-size:1.55rem;
+  font-weight:900;
+  letter-spacing:.055em;
+  color:#3ee178;
+  text-shadow:
+    0 2px 9px rgba(0,0,0,.85),
+    0 0 18px rgba(56,226,118,.18);
+}
+.access-confirmed-card{
+  position:absolute;
+  z-index:4;
+  left:50%;
+  top:172px;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  width:78%;
+  padding:13px 15px;
+  border:1px solid rgba(80,224,127,.45);
+  border-radius:13px;
+  background:
+    linear-gradient(120deg,rgba(13,61,31,.68),rgba(4,18,10,.80));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 13px 26px rgba(0,0,0,.25);
+  text-align:left;
+}
+.access-dot{
+  flex:0 0 auto;
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:#47e47e;
+  box-shadow:
+    0 0 0 4px rgba(71,228,126,.10),
+    0 0 15px rgba(71,228,126,.55);
+  animation:confirmedPulse 1.8s ease-in-out infinite;
+}
+.access-confirmed-card small{
+  display:block;
+  color:#92a99a;
+  font-size:.48rem;
+  font-weight:800;
+  letter-spacing:.16em;
+}
+.access-confirmed-card strong{
+  display:block;
+  margin-top:2px;
+  color:#eaffef;
+  font-family:"Arial Narrow","Helvetica Neue Condensed",Impact,Arial,sans-serif;
+  font-size:.88rem;
+  font-weight:900;
+  letter-spacing:.11em;
+}
+@keyframes confirmedPulse{
+  50%{
+    box-shadow:
+      0 0 0 7px rgba(71,228,126,0),
+      0 0 20px rgba(71,228,126,.70);
+  }
+}
+
+/* Small integrated holographic S */
+.holo-s{
+  position:absolute;
+  z-index:5;
+  right:22px;
+  bottom:32px;
+  width:54px;
+  height:54px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.42);
+  border-radius:12px;
+  overflow:hidden;
+  transform:rotate(-4deg);
+  background:
+    linear-gradient(135deg,
+      rgba(85,240,255,.75) 0%,
+      rgba(194,101,255,.77) 20%,
+      rgba(255,79,169,.72) 39%,
+      rgba(255,222,98,.75) 58%,
+      rgba(87,243,177,.70) 78%,
+      rgba(89,156,255,.74) 100%);
+  box-shadow:
+    inset 0 0 15px rgba(255,255,255,.28),
+    0 4px 14px rgba(0,0,0,.42);
+}
+.holo-s::before{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background:
+    repeating-linear-gradient(118deg,
+      rgba(255,255,255,.0) 0 7px,
+      rgba(255,255,255,.38) 8px 9px,
+      rgba(255,255,255,.0) 10px 16px);
+  animation:holoShift 4.8s linear infinite;
+}
+.holo-s span{
+  position:relative;
+  z-index:2;
+  font-family:"Arial Narrow","Helvetica Neue Condensed",Impact,Arial,sans-serif;
+  font-style:italic;
+  font-size:2rem;
+  font-weight:900;
+  line-height:1;
+  color:#17171b;
+  text-shadow:
+    1px 1px 0 rgba(255,255,255,.62),
+    -1px -1px 0 rgba(0,0,0,.25);
+}
+@keyframes holoShift{
+  to{transform:translateX(36px) rotate(8deg)}
+}
+.back-pass-id{
+  position:absolute;
+  z-index:4;
+  left:22px;
+  bottom:44px;
+  max-width:66%;
+  color:#a49e90;
+  font-size:.50rem;
+  font-weight:700;
+  letter-spacing:.12em;
+}
+
+/* Prevent legacy back-face elements affecting the new design */
+.pass-back .back-logo,
+.pass-back > .pass-label,
+.pass-back > .pass-confirmed,
+.pass-back > .barcode,
+.pass-back > .pass-number{
+  display:none !important;
+}
+
+@media(max-width:390px){
+  .access-confirmed-card{
+    width:82%;
+  }
+  .premium-green-zone{
+    font-size:1.42rem;
+  }
+}
